@@ -23,7 +23,9 @@ struct Day02: AdventDay {
         var result = 0
         for line in lines {
             for i in 0..<line.count {
-                if isValid(line: removeElement(at: i, from: line)) {
+                var line = line
+                line.remove(at: i)
+                if isValid(line: line) {
                     result += 1
                     break
                 }
@@ -60,13 +62,4 @@ struct Day02: AdventDay {
         }
         return true
     }
-
-    private func removeElement(at index: Int, from array: [Int]) -> [Int] {
-        guard index >= 0 && index < array.count else {
-            return array
-        }
-        let newArray = array.prefix(index) + array.suffix(from: index + 1)
-        return Array(newArray)
-    }
-
 }
