@@ -9,6 +9,6 @@ struct Main: AsyncParsableCommand {
 
     func run() async throws {
         let solver = try Solver<Day07>(bundle: Bundle.module)
-        await solver.solve(day: Day07(), part: Part(value: part))
+        await solver.solve(day: Day07(), part: Part.both)
     }
 }
